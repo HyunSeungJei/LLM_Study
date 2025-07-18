@@ -6,8 +6,15 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 
 ---
 
-## Features
+**Tech Stack**
+- **Language**: Python 3.12
+- **Framework**: FastAPI
+- **Database**: SQLite / ChromaDB
+- **LLM**: Ollama(로컬) or OpenAI API
+- **Deployment**: Hugging Face Spaces / Docker
 
+---
+**Features**
 - **News Crawling**
   - Google RSS
   - 중복 뉴스 필터링
@@ -64,11 +71,3 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
   - Huggingface Space
   - Huggingface Dataset
 [Hugging Face Spaces](https://huggingface.co/spaces/HSJay/NewsCurator)  
-
----
-**Tech Stack**
-- **Language**: Python 3.12
-- **Framework**: FastAPI
-- **Database**: SQLite / ChromaDB
-- **LLM**: Ollama(로컬) or OpenAI API
-- **Deployment**: Hugging Face Spaces / Docker
