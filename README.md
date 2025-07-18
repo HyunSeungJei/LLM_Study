@@ -61,7 +61,7 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 
 ---
 - **LangGraph Workflow**
-![LangGraph Workflow](./NewsCurator_Mermaidchart.png)
+<img src="./NewsCurator_Mermaidchart.png" alt="LangGraph Workflow" style="width:50%;"/>
 
 
 ---
