@@ -6,10 +6,6 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 
 ---
 
-## Demo
-[Hugging Face Spaces](https://huggingface.co/spaces/HSJay/NewsCurator)  
-
----
 ## Features
 
 - **News Crawling**
@@ -58,15 +54,16 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
     - 기사 임베딩 → `KMeans`, `DBSCAN`, `HDBSCAN`, `cosine_similarity`(threshold > 0.8)
 
 ---
+- **LangGraph Workflow**
+![LangGraph Workflow](./NewsCurator_Mermaidchart.png)
+
+
+---
 
 - **Demo**
   - Huggingface Space
   - Huggingface Dataset
-
----
-- **LangGraph Workflow**
-![LangGraph Workflow](./NewsCurator_Mermaidchart.png)
-
+[Hugging Face Spaces](https://huggingface.co/spaces/HSJay/NewsCurator)  
 
 ---
 **Tech Stack**
