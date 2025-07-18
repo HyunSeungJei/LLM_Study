@@ -8,10 +8,10 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 
 **Tech Stack**
 - **Language**: Python 3.12
-- **Framework**: FastAPI
+- **Framework**: Langgraph
 - **Database**: SQLite / ChromaDB
-- **LLM**: Ollama(로컬) or OpenAI API
-- **Deployment**: Hugging Face Spaces / Docker
+- **LLM**: Ollama
+- **Deployment**: Hugging Face Spaces / Dataset
 
 ---
 **Features**
