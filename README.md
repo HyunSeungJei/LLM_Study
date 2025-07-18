@@ -7,11 +7,19 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 ---
 
 **Tech Stack**
-- **Language**: Python 3.12
+- **Language**: 'Python 3.12'
 - **Framework**: Langgraph
 - **Database**: SQLite / ChromaDB
 - **LLM**: Ollama
 - **Deployment**: Hugging Face Spaces / Dataset
+
+
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![LangGraph](https://img.shields.io/badge/Framework-LangGraph-green)
+![SQLite](https://img.shields.io/badge/DB-SQLite-blue)
+![ChromaDB](https://img.shields.io/badge/DB-ChromaDB-purple)
+![Ollama](https://img.shields.io/badge/LLM-Ollama-orange)
+![HuggingFace](https://img.shields.io/badge/Deploy-HuggingFace-yellow?logo=huggingface)
 
 ---
 **Features**
