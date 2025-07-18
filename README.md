@@ -5,8 +5,6 @@ LLM 기반 **뉴스 일일동향 AI 에이전트**
 **가장 중요한 뉴스를 자동으로 선별해고 요약해주는 서비스**  
 
 ---
-
-**Tech Stack**
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![LangGraph](https://img.shields.io/badge/Framework-LangGraph-green)
 ![SQLite](https://img.shields.io/badge/DB-SQLite-blue)
