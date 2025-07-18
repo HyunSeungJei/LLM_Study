@@ -1,0 +1,281 @@
+### Model: qwen3:0.6b
+
+[Strategy: role_instruction - Role + clear instruction]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 다음 뉴스를 **3문장 이내**로 요약하고, **핵심 키워드 5개**를 [ ] 형태로 제공해주세요.
+
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+<출력 형식 예시>
+1) 요약: …
+2) 키워드: [키워드1, 키워드2, …]
+
+=== Response ===
+<think>
+Okay, let's tackle this. The user wants a summary of the given news in three sentences and include key keywords in a specific format. First, I need to read the news carefully.
+
+The main points are: AOL's global management, which is a top 10 in the NYSE, surpasses the 1990s IT bubble. The 2000 AI bubble is worse, and they mention the 2000s tech bubble. Also, AI is the main driver, with companies like Eni and Microsoft leading, and Eni's share is 4 billion. There's a debate about the market's future. The keywords should be five key terms.
+
+First sentence: Summarize the main point. Use "AOL" as a key. Mention the bubble comparison. Then the second sentence: Highlight the AI industry's role. Third sentence: Discuss the market's future. Then the keywords. Check for five terms. Make sure each keyword is in brackets. Avoid markdown. Let me put it all together.
+</think>
+
+1) 요약: 
+아폴로 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이를 반영하면 뉴욕증시 상위 10개 기업 중 1990년대 상위 기업보다 더 고평가했다. 
+AI 기반 주식이 강세를 이끌고, 엔비디아 등 빅테크 기업이 시총 4조 달러를 돌파하며 뉴욕증시의 성장이 지속될 가능성이 있음을 지적했다.  
+
+2) [AOL, IT 버블, AI, 뉴욕증시, 기술주]
+
+================================================================================
+
+[Strategy: few_shot - Few-shot examples]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 다음 예시를 참고하여 뉴스를 요약해 주세요.
+
+예시 1:
+뉴스: 'A, B를 공개하며...'
+요약: '...'
+
+예시 2:
+뉴스: 'C, D 발표...'
+요약: '...'
+
+이제 다음 뉴스를 **3문장 이내**로 요약하고, **핵심 키워드 5개**를 제공해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+=== Response ===
+<think>
+Okay, let's start by understanding the user's request. They want a summary of the provided news in three sentences and include five key keywords. The example given uses Korean, so I need to make sure I'm using the correct language.
+
+First, I'll read through the news text. The main points are about the top 10 companies in the global stock market, their performance compared to the 1990s IT bubble, the impact of the US dollar's volatility, the role of tech companies like Microsoft and Intel, and the debate around AI stock prices. 
+
+Now, I need to create three concise sentences. The first sentence should summarize the main point. The second and third could cover the key details: the comparison to the 1990s, the factors like volatility and tech growth, and the debate. Let me check if there are five keywords. The keywords are: global stock market, 1990s IT bubble, US dollar volatility, tech companies, AI. Yes, that's five. 
+
+Wait, the user specified three sentences, so each sentence should be a separate part. Let me structure each sentence to include these keywords. Also, make sure the summary is within three sentences. Alright, that should do it.
+</think>
+
+**요약:**  
+아폴로 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 바탕으로 뉴욕증시 상위 10개 기업이 1990년대 상위 기업보다 더 고평가했다. 
+미국 주가지수 관세 불확실성에도 불구하고 기술 중심의 나스닥 종합지수가 매력적으로 성장하며, 
+인공지능 주식의 12개월 수익비율이 30배 높아지며 빅테크 기업을 중심으로 강세를 이어나가고 있다.  
+
+**핵심 키워드:** global stock market, 1990년IT bubble, US dollar volatility, tech companies, AI.
+
+================================================================================
+
+[Strategy: chain_of_thought - Chain-of-Thought reasoning]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 먼저 본문에서 핵심 문장 3개를 추출하고, 각 문장을 결합해 요약문을 작성해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 
+과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 
+1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 
+상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 
+버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.
+슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 
+기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 
+상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.
+최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+출력 형식:
+Step 1: 핵심 문장
+- ...
+Step 2: 최종 요약 (3문장 이내)
+1) ...
+2) ...
+3) ...
+
+=== Response ===
+<think>
+Okay, let's tackle this step by step. The user wants me to summarize the news article with three key points. First, I need to extract the three main points from the text.
+
+Looking at the article, the first part mentions that Apollo's global management, an AI economist, is now ranked higher than the previous bubble of the 1990s IT bubble. Then, there's a warning about AI's bubble being more severe than the 1990s IT bubble. The third part talks about the 12-month forward price ratio being 30 times higher than 2000's IT bubble, which they achieved. Also, there's a mention of big tech companies like Microsoft and Meta driving the AI boom, but some analysts caution that their prices might be too high compared to historical levels.
+
+So, the three key points are: 1) Apollo's ranking in the global bubble, 2) AI's bubble being worse than the past IT bubble, and 3) big tech's impact, along with the caution against price volatility. I need to combine these into three sentences within the summary.
+</think>
+
+Step 1: 핵심 문장  
+- 아폴로 이코노미스트는 뉴욕증시 상위 10개 기업 중 1990년대 상위 기업보다 더 고평가했다.  
+- AI 기업의 주가가 1990년 IT 버블보다 심각해지며, 기술 중심 수익비율이 높다.  
+- 뉴욕증시 강세장은 AI 기업(엔비디아)의 역할을 주고 있으며, 시장에서는 현재 대형 기업의 가격이 역사적 기준보다 비싸다는 반론이 있음.  
+
+Step 2: 최종 요약 (3문장 이내)  
+1) 아폴로 이코노미스트는 뉴욕증시 상위 10개 기업 중 1990년대 상위 기업보다 더 고평가했다.  
+2) AI 기업의 주가가 1990년 IT 버블보다 심각해지고, 2000년 시장 기준 비싸다는 우려가 있다.  
+3) 뉴욕증시 강세장은 AI 기업(엔비디아)의 역할을 주고 있으며, 대형 기업의 가격이 역사적 기준보다 비싸다는 반론이 있음.
+
+================================================================================
+
+[Strategy: self_critique - Self-Critique routine]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 뉴스를 요약한 뒤, 빠진 핵심 정보를 보완해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+출력 형식:
+1) 초안 요약
+2) 보완할 정보
+3) 최종 요약
+
+=== Response ===
+<think>
+Okay, let's start with the user's request. They want a summary and then the additional information. The original news is about the top 10 companies in the NYSE in 2023, compared to the 1990s' IT bubble, and mentions that despite having a different bubble, these companies now have higher rankings. Also, it talks about the 12-month P/E ratio being 30 times higher than 2000's IT bubble, and mentions that AI companies like EniDi are leading, but there's a debate about their stock prices being too high compared to historical data.
+
+First, the summary. The key points are the current top 10 companies in NYSE, higher than the IT bubble of 1990s, the P/E ratio being higher, AI companies leading, and the debate about their stock prices. So the summary should mention these elements concisely.
+
+Next, the additional information. The user wants to expand on the key points. I need to elaborate on the P/E ratio, the AI companies, the debate about stock prices, and maybe the factors like management and the bubble comparison. Also, note that the P/E ratio being 30 times higher shows that AI companies have a higher valuation, and that there's a concern about their prices being too high compared to historical data.
+
+Wait, the user provided the original text, so I need to make sure I don't add anything beyond that. Let me check again. The original text says that the 12-month P/E ratio was 30 times higher than the 2000 IT bubble, and that AI companies are leading. Also, the debate about their stock prices being too high. So the additional information should include these points, making sure they are all included in the summary and the additional info section.
+
+I think that's all. Now, structure the response with the three parts as specified.
+</think>
+
+1) 초안 요약  
+아폴로 이코노미스트는 뉴욕증시 상위 10개 기업 중 1990년대 IT 버블보다 현재의 AI 기반 기업이 더 뉴욕증시 상위 기업으로 수상했다는 점을 밝혔다. 이는 AI 기업의 주가 수익비율이 2000년 IT 버블 시기를 30배 상승하며 기술 중심의 나스닥 시장에서 연일 사상 최고치를 유지하는 드러나고 있다.  
+
+2) 보완할 정보  
+- **P/E 수익비율**: 2000년 IT 버블 시기를 30배 넘어 25배 언저리한 12개월 기간 동안 증시 급증.  
+- **AI 기업의 영향**: 엔비디아(EniDi)가 세계 4조 달러를 돌출하며 기술 분야를 이끌었지만, 월가에서는 역사적 기준으로 인식되며 2000년의 IT 거품으로 이어질 가능성은 제기된다.  
+- **지배력**: 미국 주가지수 관세 불확실성 등으로 재조력한 상황이 이어지고, 기술주 중심의 나스닥 시장에서 지속적인 강세가 예상된다.  
+
+3) 최종 요약  
+아폴로 이코노미스트는 2023년 뉴욕증시 상위 10개 기업 중 AI 기반 기업이 더 뉴욕증시 기업으로 수상했다는 점을 밝혔으며, 
+2000년 IT 버블 시기를 30배 상승한 P/E 수익비율과 현 시장의 AI 기업의 경쟁력과 관세 불확실성 등이 주요 요인으로 강조된다.
+
+================================================================================
+
+### Model: PetrosStav/gemma3-tools:4b
+
+[Strategy: role_instruction - Role + clear instruction]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 다음 뉴스를 **3문장 이내**로 요약하고, **핵심 키워드 5개**를 [ ] 형태로 제공해주세요.
+
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+<출력 형식 예시>
+1) 요약: …
+2) 키워드: [키워드1, 키워드2, …]
+
+=== Response ===
+1) 요약: 토르스텐 슬록 수석 이코노미스트는 현재 뉴욕증시 상위 10개 기업의 고평가 심화를 경고하며, 
+AI 버블이 1990년대 IT 버블보다 심각하다고 분석했습니다. 특히, AI 관련 주식의 시가총액이 1990년대 IT 버블 시기를 넘어선 점을 지적하며, 
+빅테크 기업들의 주가 상승이 기업 이익 증가에 기인한다고 평가했습니다. 이러한 분석은 뉴욕증시의 강세 지속에 대한 우려를 낳고 있습니다.
+
+2) 키워드: [AI 버블, 뉴욕증시, 토르스텐 슬록, 빅테크, 시가총액]
+
+
+================================================================================
+
+[Strategy: few_shot - Few-shot examples]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 다음 예시를 참고하여 뉴스를 요약해 주세요.
+
+예시 1:
+뉴스: 'A, B를 공개하며...'
+요약: '...'
+
+예시 2:
+뉴스: 'C, D 발표...'
+요약: '...'
+
+이제 다음 뉴스를 **3문장 이내**로 요약하고, **핵심 키워드 5개**를 제공해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+=== Response ===
+**요약:**
+
+아폴로 글로벌 매니지먼트의 토르스텐 슬록 수석 이코노미스트는 뉴욕증시 시총 상위 10개 기업이 1990년대 IT 버블보다 더 고평가되었다고 분석했습니다. 
+AI 기술 열풍으로 인해 엔비디아를 비롯한 빅테크 기업들이 주가를 급등했지만, 
+월가에서는 2000년 IT 버블 붕괴와 유사한 현상이 발생할 가능성은 낮다고 전망합니다. 
+현재 AI 관련 주식의 고평가는 기업 이익 증가에 기인하며, 향후 미 증시는 빅테크 부문을 중심으로 강세장을 지속할 것으로 예상됩니다.
+
+**핵심 키워드:**
+
+1.  AI
+2.  주식
+3.  아폴로 글로벌 매니지먼트
+4.  토르스텐 슬록
+5.  미 증시
+
+================================================================================
+
+[Strategy: chain_of_thought - Chain-of-Thought reasoning]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 먼저 본문에서 핵심 문장 3개를 추출하고, 각 문장을 결합해 요약문을 작성해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+출력 형식:
+Step 1: 핵심 문장
+- ...
+Step 2: 최종 요약 (3문장 이내)
+1) ...
+2) ...
+3) ...
+
+=== Response ===
+Step 1: 핵심 문장
+- 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 IT 버블보다 더 고평가되었다.
+- AI 관련 주식의 버블이 1990년대 말 IT 버블보다 심각하다는 월가 전문가의 경고가 있다.
+- AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인한다.
+
+Step 2: 최종 요약 (3문장 이내)
+1) 뉴욕증시 시총 상위 10개 기업이 1990년대 IT 버블보다 현재 더 고평가되어, 월가 전문가들이 심각한 버블 경고를 내리고 있다.
+2) AI 열풍에 힘입어 엔비디아를 필두로 한 빅테크 기업들의 주가가 상승했지만, 이는 기업이익 증가에 기인한다.
+3) 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 분석이 주를 이루고 있다.
+
+================================================================================
+
+[Strategy: self_critique - Self-Critique routine]
+
+=== Prompt ===
+SYSTEM: 당신은 한국어 뉴스 요약 전문가입니다.
+User: 뉴스를 요약한 뒤, 빠진 핵심 정보를 보완해주세요.
+뉴스 본문:
+아폴로 이코노미스트 시총 상위 10개 기업, 과거 버블보다 더 고평가 토르스텐 슬록 자산운용사 아폴로 글로벌 매니지먼트 수석 이코노미스트는 1990년대 IT 버블과 현 AI 버블의 차이점을 들자면 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 상위 10개 기업보다 더 고평가됐다는 점이라고16일(현지시간) 밝혔다. 최근 뉴욕증시에서 인공지능 관련 주식의 버블이 1990년대 말 IT 버블 때보다 심각하다는 월가 전문가의 경고가 나온다.슬록 이코노미스트의 이 같은 지적은 미국의 주가지수가 관세 불확실성에도 불구하고 다시 전고점을 돌파하고, 기술주 중심의 나스닥 종합지수가 연일 사상 최고치를 경신하는 가운데 나왔다.슬록 이코노미스트가 공개한 뉴욕증시 상위 10개 기업의 12개월 선행 주가수익비율은 30배에 육박,25배 언저리였던 2000년 IT 버블 정점 시기를 능가했다.최근 2년여간 뉴욕증시 강세장은 AI 열풍에 힘입어 엔비디아를 필두로 마이크로소프트, 메타 등 빅테크가 이끌어왔다.AI 반도체의 절대 강자인 엔비디아는 전 세계 기업 중 사상 최초로 최근 시총 4조 달러를 돌파하기도 했다.다만, 월가에서는 현재 대형 빅테크의 주가가 역사적 기준으로 볼 때 매우 비싸다는 데 공감하면서도 2000년 IT 거품 붕괴와 같은 현상으로 이어질 가능성은 작다는 반론도 적지 않다.존 히긴스 캐피털 이코노믹스의 수석 이코노미스트는 오늘날 AI 기업 주가의 상승은 평가가치 상승보다는 기업이익 증가에 기인하고 있다며 미 증시가 내년 말까지 빅테크 부문을 필두로 강세장을 지속할 것이라고 예상하는 이유라고 말했다.
+
+출력 형식:
+1) 초안 요약
+2) 보완할 정보
+3) 최종 요약
+
+=== Response ===
+## 1) 초안 요약
+
+아폴로 글로벌 매니지먼트의 토르스텐 슬록 수석 이코노미스트는 현재 뉴욕증시 시총 상위 10개 기업이 1990년대 IT 버블 당시 기업보다 더 고평가되어 있다는 점을 지적했습니다. 특히 AI 관련 주식의 급등으로 인해 주가수익비율(PER)이 30배에 육박하는 현상을 우려하고 있습니다. 월가 전문가들은 AI 열풍에 힘입어 주가가 상승했지만, 2000년 IT 버블 붕괴와 같은 심각한 거품 붕괴 가능성은 낮다고 분석합니다.
+
+## 2) 보완할 정보
+
+*   **AI 버블의 구체적인 특징:** AI 버블이 1990년대 IT 버블과 구체적으로 어떤 차이점을 보이는지 (예: 기술의 성숙도, 시장의 성숙도, 투자 심리 등)
+*   **주요 AI 기업의 시가총액:** 엔비디아 외에 다른 주요 AI 기업들의 시가총액 정보 (예: 메타, 마이크로소프트 등)
+*   **AI 투자 심리:** AI 투자에 대한 투자자들의 심리 상태 (예: 과도한 낙관론, FOMO(Fear Of Missing Out) 현상 등)
+*   **거품 붕괴 가능성에 대한 추가 분석:** 거품 붕괴 가능성에 대한 전문가들의 의견을 좀 더 구체적으로 정리하고, 붕괴 시나리오에 대한 예측을 추가할 수 있습니다.
+
+## 3) 최종 요약
+
+토르스텐 슬록 아폴로 글로벌 매니지먼트 수석 이코노미스트는 현재 뉴욕증시 시총 상위 10개 기업이 
+1990년대 IT 버블 당시 기업보다 더 고평가되어 있다는 점을 강조하며, 특히 인공지능(AI) 관련 주식의 급격한 상승에 대한 우려를 표명했습니다. 
+엔비디아를 필두로 하는 빅테크 기업들의 시총이 사상 최고치를 경신하는 가운데, 투자자들의 과도한 낙관론과 FOMO(Fear Of Missing Out) 
+현상으로 인해 주가가 지나치게 높게 평가될 수 있다는 분석입니다. 월가 전문가들은 AI 기술의 잠재력을 고려할 때, 
+2000년 IT 버블 붕괴와 같은 극단적인 거품 붕괴 가능성은 낮다고 전망하지만, 시장 변동성에 대한 주의가 필요합니다.
+
+
+================================================================================
+

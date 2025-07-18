@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>뉴스 큐레이터</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .categories {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .category-btn {
+      padding: 8px 15px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+    .category-btn.active {
+      background: #0078ff;
+      color: #fff;
+      border-color: #0078ff;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .news-card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .news-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #222;
+    }
+    .news-summary {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .news-meta {
+      font-size: 13px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .score {
+      color: #ff9800;
+      font-size: 14px;
+    }
+    .related-btn {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #0078ff;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .related-list {
+      display: none;
+      margin-top: 10px;
+      padding-left: 15px;
+      border-left: 3px solid #ddd;
+    }
+    .related-item {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .related-item span {
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>📰 뉴스 큐레이터</header>
+
+  <div class="categories">
+    <button class="category-btn active">전체</button>
+    <button class="category-btn">AI</button>
+    <button class="category-btn">경제</button>
+    <button class="category-btn">IT</button>
+    <button class="category-btn">국제</button>
+  </div>
+
+  <div class="container" id="newsContainer"></div>
+
+  <script>
+    const dummyNews = [
+      {
+        title: "OpenAI, GPT-5 출시 임박",
+        summary: "OpenAI가 GPT-5를 올해 말 출시할 예정이며, 멀티모달 기능이 대폭 강화됩니다.",
+        score: 4.8,
+        source: "TechCrunch",
+        time: "2시간 전",
+        related: [
+          { title: "GPT-5, 기업 AI 시장에 영향", source: "The Verge" },
+          { title: "차세대 GPT, 애플과 협력 가능성", source: "Bloomberg" }
+        ]
+      },
+      {
+        title: "삼성, 2분기 반도체 흑자 전환",
+        summary: "삼성이 2분기 반도체 부문에서 흑자 전환하며 주가가 상승세를 보였습니다.",
+        score: 4.5,
+        source: "연합뉴스",
+        time: "4시간 전",
+        related: [
+          { title: "반도체 경기 회복, 삼성 주가 영향은?", source: "머니투데이" },
+          { title: "TSMC와 경쟁 본격화되는 삼성", source: "조선비즈" }
+        ]
+      },
+      {
+        title: "테슬라, 완전 자율주행 베타 테스트 확대",
+        summary: "테슬라가 완전 자율주행 소프트웨어 베타 테스트를 북미 전역으로 확대합니다.",
+        score: 4.3,
+        source: "CNBC",
+        time: "5시간 전",
+        related: [
+          { title: "일론 머스크, 자율주행 상용화 자신감", source: "Reuters" }
+        ]
+      },
+      {
+        title: "애플, 새로운 MR 헤드셋 공개 예정",
+        summary: "애플이 차세대 혼합현실(MR) 헤드셋을 내년 초 공개할 계획입니다.",
+        score: 4.6,
+        source: "Bloomberg",
+        time: "6시간 전",
+        related: [
+          { title: "MR 시장 경쟁 본격화", source: "WSJ" }
+        ]
+      },
+      {
+        title: "네이버, 초거대 AI 'HyperCLOVA X' 업그레이드",
+        summary: "네이버가 HyperCLOVA X의 최신 버전을 공개하며 한국어 AI 생태계를 강화합니다.",
+        score: 4.4,
+        source: "ZDNet Korea",
+        time: "7시간 전",
+        related: [
+          { title: "네이버 AI 전략 발표", source: "전자신문" }
+        ]
+      },
+      {
+        title: "MS, AI 기반 오피스 기능 강화",
+        summary: "마이크로소프트가 Copilot 기능을 오피스 전 제품군에 통합합니다.",
+        score: 4.7,
+        source: "The Verge",
+        time: "8시간 전",
+        related: [
+          { title: "AI 오피스 전쟁 본격화", source: "Forbes" }
+        ]
+      },
+      {
+        title: "LG전자, 스마트홈 AI 허브 출시",
+        summary: "LG전자가 스마트홈 AI 허브를 출시하며 IoT 기기 통합을 강화합니다.",
+        score: 4.1,
+        source: "매일경제",
+        time: "9시간 전",
+        related: [
+          { title: "스마트홈 시장 경쟁 심화", source: "머니투데이" }
+        ]
+      },
+      {
+        title: "구글, 새로운 AI 검색 기능 공개",
+        summary: "구글이 AI 기반 검색 기능을 발표하며 사용자 맞춤형 정보 제공을 강화합니다.",
+        score: 4.9,
+        source: "Google Blog",
+        time: "10시간 전",
+        related: [
+          { title: "검색의 미래는 AI", source: "NY Times" }
+        ]
+      },
+      {
+        title: "바이두, 생성형 AI 'ERNIE 4.0' 출시",
+        summary: "바이두가 GPT-4급 생성형 AI ERNIE 4.0을 공식 출시했습니다.",
+        score: 4.2,
+        source: "SCMP",
+        time: "11시간 전",
+        related: [
+          { title: "중국 AI 경쟁 심화", source: "BBC" }
+        ]
+      },
+      {
+        title: "메타, AI 아바타 서비스 론칭",
+        summary: "메타가 AI 아바타 서비스를 공개하며 메타버스 전략을 강화합니다.",
+        score: 4.0,
+        source: "Meta Newsroom",
+        time: "12시간 전",
+        related: [
+          { title: "메타버스의 진화", source: "Financial Times" }
+        ]
+      }
+    ];
+
+    function renderStars(score) {
+      const fullStars = Math.floor(score);
+      const halfStar = score % 1 >= 0.5 ? 1 : 0;
+      let stars = "★".repeat(fullStars);
+      if (halfStar) stars += "½";
+      return stars;
+    }
+
+    function renderNews() {
+      const container = document.getElementById("newsContainer");
+      container.innerHTML = "";
+
+      dummyNews.forEach((news, index) => {
+        const card = document.createElement("div");
+        card.className = "news-card";
+        card.innerHTML = `
+          <div class="news-title">${news.title}</div>
+          <div class="news-summary">${news.summary}</div>
+          <div class="news-meta">
+            <div>${news.source} · ${news.time}</div>
+            <div class="score">${renderStars(news.score)}</div>
+          </div>
+          <button class="related-btn" onclick="toggleRelated(${index})">연관 기사 보기 ▾</button>
+          <div class="related-list" id="related-${index}">
+            ${news.related.map(r => `<div class="related-item">• ${r.title} <span>(${r.source})</span></div>`).join("")}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleRelated(index) {
+      const list = document.getElementById(`related-${index}`);
+      list.style.display = (list.style.display === "block") ? "none" : "block";
+    }
+
+    renderNews();
+  </script>
+</body>
+</html>
